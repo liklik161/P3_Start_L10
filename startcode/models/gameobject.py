@@ -13,7 +13,8 @@ class GameObject:
     def beweeg(self, dx: int, dy: int):
         """ Verplaats dit object. dx = verandering in x, dy = verandering in y"""
         # TODO OEFENING 3
-        pass
+        self.x += dx
+        self.y += dy
     
 
     def teken(self, scherm: pygame.Surface):

@@ -5,8 +5,9 @@ from config import TILE_SIZE, COLORS
 
 class Doos(GameObject):
     """Doos klasse die geduwd kan worden door de speler, erft van GameObject"""
-    
-    # TODO OEFENING 1: Roep parent constructor aan met super()
+
+    def __init__(self, x: int, y: int):
+        super().__init__(x, y, COLORS["doos"])
     
 
     def teken(self, scherm: pygame.Surface):

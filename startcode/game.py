@@ -102,17 +102,37 @@ class SokobanGame:
     def _vind_doos_op(self, x: int, y: int) -> Doos | None:
         """Vind een doos op een bepaalde positie, en geef dat doos object terug."""
         # TODO OEFENING 4
-        pass
+        for doos in self.dozen:
+            if doos.x == x and doos.y == y:
+                return doos
     
 
     def _probeer_doos_duwen(self, doos: Doos, dx: int, dy: int) -> bool:
         """ Probeer een doos te duwen; True als het gelukt is."""
         # TODO OEFENING 5
-        pass
+        nieuwe_doos_x = dx + doos.x
+        nieuwe_doos_y = dy + doos.y
+
+        if not self._is_binnen_grid(nieuwe_doos_x, nieuwe_doos_y):
+            return False
+
+        if self.grid[nieuwe_doos_y][nieuwe_doos_x] == MUUR:
+            return False
+
+        if self._vind_doos_op(nieuwe_doos_x, nieuwe_doos_y):
+            return False
+
+        doos.beweeg(dx,dy)
+        return True
+
     
 
     def _check_gewonnen(self) -> bool:
         """Check of alle dozen op doel vakjes staan; True als waar, False als niet."""
         # TODO OEFENING 6
-        pass
+        for doos in self.dozen:
+            if self.grid[doos.y][doos.x] != DOEL:
+                return False
+
+        return True
 

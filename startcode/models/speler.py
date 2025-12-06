@@ -7,6 +7,8 @@ class Speler(GameObject):
     """Speler klasse, erft van GameObject"""
     
     # TODO OEFENING 1: Roep parent constructor aan met super()
+    def __init__(self, x: int, y: int):
+        super().__init__(x,y, COLORS["speler"])
     
 
     def teken(self, scherm: pygame.Surface):
